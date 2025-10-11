@@ -8,7 +8,7 @@ markmap:
   embedAssets: true
 ---
 
-# Mappa Concettuale
+# Mindmap
 
 ## Links
 
@@ -37,7 +37,7 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
 ### Blocks
 
 ```js
-console.log('hello, JavaScript')
+console.log('hello')
 ```
 
 | Products | Price |
@@ -45,4 +45,4 @@ console.log('hello, JavaScript')
 | Apple | 4 |
 | Banana | 2 |
 
-![](../attachments/favicon.png)
+![](../../../attachments/images/brain.png)
