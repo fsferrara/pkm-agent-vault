@@ -105,13 +105,7 @@ Source priority: active tasks (`my/todo.md`) → daily notes (`my/daily/`) → m
 
 ## Memory lookup (all modes, when decoding shorthand)
 
-Always decode entities (people, projects, acronyms, codenames) before acting on a request. Tiered lookup:
-
-1. **Hot cache** — the `## People`, `## Terms`, `## Projects`, `## Preferences` tables in `my/daily/@Journal 📔.md`. Covers ~90% of daily needs.
-2. **Deep memory — people** — `my/contacts/<name>.md`.
-3. **Deep memory — projects** — `second-brain/projects/+<slug>.md`.
-4. **Deep memory — terms / company** — `my/@Glossary 📖.md`, `my/@Company 🏢.md`.
-5. **Ask the user** — if still unknown, ask. Once they answer, write it to the appropriate deep-memory file. If the entity then gets referenced ≥ 3 times across recent tasks / daily notes, promote a one-line entry to the hot cache.
+Always decode entities (people, projects, acronyms, codenames) before acting on a request. Full rules — lookup order, capture templates, promotion / demotion — live in `.agents/skills/memory-management/SKILL.md`. Follow that skill's tiered lookup (hot cache → contacts → projects → glossary / company → ask the user).
 
 ## Triage rules (mode: `triage`)
 
@@ -127,7 +121,7 @@ For each flagged item, offer a single-keystroke disposition (done / reschedule /
 
 ## Memory-gap fill (mode: `triage`, optionally after `cadence:*`)
 
-After the task scan, decode every entity in today's + this-week's tasks and today's daily note against the memory lookup chain. Group the unknowns:
+After the task scan, decode every entity in today's + this-week's tasks and today's daily note. Group the unknowns by type and surface them to the user:
 
 ```
 Found entities I don't have context for:
@@ -145,14 +139,7 @@ Terms:
      → What does PSR stand for?
 ```
 
-For each answer the user gives:
-
-- **Person** → write `my/contacts/<name>.md` (use `templates/contact.md` if present; otherwise a minimal stub: name, role, how-we-know-each-other, nicknames). If mentioned ≥ 3 times recently, add a row to the `## People` table in `@Journal 📔.md`.
-- **Project** → write `second-brain/projects/+<slug>.md` (use `templates/project-home.md` if present; otherwise a minimal stub: goal, status, related area, related people). If active, add a row to the `## Projects` table in `@Journal 📔.md`.
-- **Term / acronym** → append a row to `my/@Glossary 📖.md`. If used ≥ 3 times recently, also add to `## Terms` in `@Journal 📔.md`.
-- **Company / team / tool context** → append to the right section of `my/@Company 🏢.md`.
-
-**Never auto-add** to `my/todo.md`, `my/contacts/`, or project pages without the user confirming each one.
+Writing the answers to deep memory, using the right templates, and deciding whether to promote to the hot cache — all follow the rules in `.agents/skills/memory-management/SKILL.md` §Capture. **Never auto-add** to `my/todo.md`, `my/contacts/`, project pages, or the glossary without the user confirming each one.
 
 ## Output per mode
 
@@ -198,6 +185,7 @@ After the summary, the user often wants one of:
 
 ### Related skills
 
+- `.agents/skills/memory-management/SKILL.md` — two-tier memory rules: lookup order, capture templates, promotion / demotion.
 - `.agents/skills/gtd-task-workflow/SKILL.md` — task-level edits.
 - `.agents/skills/second-brain-organize/SKILL.md` — PARA filing.
 

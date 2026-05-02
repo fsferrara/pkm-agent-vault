@@ -28,6 +28,8 @@ Do **not** use this skill for knowledge notes or reference material (that's `sec
 - **`my/workflow/Recurring Tasks 🔁.md`** and **`Ticklers 🗓️.md`** — pickers for weekly/monthly reviews. Tasks from here get copied into the live buckets.
 
 > For stale-task triage, memory-gap fill, or any cross-vault review (daily/weekly/monthly cadence, topic retrieval, hub-page refresh), defer to `vault-update`.
+>
+> When a task mentions a name / acronym / `+slug` you don't recognize, decode it first via `.agents/skills/memory-management/SKILL.md` (hot cache → deep memory → ask) rather than guessing.
 
 ## The workflow: Capture → Clarify → Organize
 
@@ -152,3 +154,4 @@ Someday/Maybe  →  Later  →  This Week  →  Today  →  Now/Pomodoro  →  C
 - `my/workflow/Recurring Tasks 🔁.md`, `Ticklers 🗓️.md` — pickers for weekly/monthly reviews.
 - `AGENTS.md` (repo root) — vault-wide conventions, links, emoji handling.
 - `.agents/skills/vault-update/SKILL.md` — cross-vault reviews, triage, memory gap-fill.
+- `.agents/skills/memory-management/SKILL.md` — decoding shorthand (people, projects, acronyms) referenced in tasks.

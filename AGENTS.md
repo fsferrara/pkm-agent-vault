@@ -181,39 +181,9 @@ There is no test suite, no linter, no build. Verification is reading the rendere
 
 ## Memory (two-tier)
 
-The agent decodes your shorthand ("ask todd about PSR") by consulting a two-tier memory. **Hot cache** is a short, high-traffic summary living inside the daily-notes hub. **Deep memory** is the full knowledge base, spread across the vault's existing homes instead of a parallel `memory/` tree.
+The agent decodes your shorthand ("ask todd about PSR") by consulting a two-tier memory: a **hot cache** in `my/daily/@Journal 📔.md` and **deep memory** spread across `my/contacts/`, `second-brain/projects/`, `my/@Glossary 📖.md`, and `my/@Company 🏢.md`.
 
-### Hot cache
-
-`my/daily/@Journal 📔.md` — four tables appended below the existing `## Context Content` section:
-
-- `## People` — top ~30 contacts.
-- `## Terms` — most-used acronyms and shorthand.
-- `## Projects` — currently-active `+project` entries.
-- `## Preferences` — working preferences (meeting style, focus windows).
-
-Target total for the four tables: ~80 lines. When it grows beyond that, demote to deep memory.
-
-### Deep memory
-
-| Tier | Location |
-|---|---|
-| People | `my/contacts/<name>.md` (hub: [[@Contacts 👥]]) |
-| Projects | `second-brain/projects/+<slug>.md` |
-| Glossary (acronyms, codenames, nicknames) | `my/@Glossary 📖.md` |
-| Company context (teams, tools, processes) | `my/@Company 🏢.md` |
-
-### Lookup order
-
-1. Hot cache (`@Journal 📔.md` tables).
-2. Deep memory — people / projects / glossary / company context.
-3. Ask the user; on answer, write to deep memory.
-
-### Promotion / demotion
-
-- **Promote** a deep-memory entry to the hot cache when the entity is referenced ≥ 3 times across recent tasks or daily notes.
-- **Demote** (remove the hot-cache row; keep the deep-memory file) when the project ships, a contact stops being frequent, or a term falls out of use.
-- The `vault-update` skill runs the bootstrap, lookup, and gap-fill — it's the surface that keeps memory alive.
+See `.agents/skills/memory-management/SKILL.md` for lookup order, capture templates, and promotion / demotion rules. `vault-update` runs the bootstrap and drives gap-fill against those rules during `triage`.
 
 ## When Editing
 
