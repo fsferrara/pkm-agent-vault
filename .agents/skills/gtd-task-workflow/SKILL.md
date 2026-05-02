@@ -33,7 +33,7 @@ Do **not** use this skill for knowledge notes or reference material (that's `sec
 
 ### 1. Capture
 
-New captures land in `my/inbox.md` as free-form one-liners. One line per item is fine; no formatting, no priority, no bucket yet — the goal is friction-free capture.
+New captures land in `my/inbox.md` as free-form one-liners or disorganized notes — **anything goes**. No formatting, no labels, no priorities, no buckets at this stage; the goal is friction-free capture. Categorization happens later, during Clarify.
 
 > `🗓 Ticklers` is an optional section that doesn't exist in `my/todo.md` by default. Add it in its canonical position the first time it's used; don't leave stub empty sections behind.
 
@@ -58,8 +58,8 @@ For each item in `my/inbox.md`, answer in order:
 | Multi-step work | Create or update a `+project` page in `second-brain/projects/`, then link the next physical action back into a bucket |
 | Committed for today | `## 📆 Today` |
 | Committed for this week | `## 🗓 This Week` |
-| Actionable, but later than this week | `## 🗒 Later` |
-| Idea, no commitment | `## 🤔 Someday/Maybe` |
+| Actionable and committed, but not within the next week | `## 🗒 Later` |
+| Idea without commitment yet (or not yet actionable) | `## 🤔 Someday/Maybe` |
 | Not actionable and not worth keeping | Delete |
 
 Maintain **one** item under `## 🍅 Now/Pomodoro (1)` — the current focus. Two only if absolutely necessary.
@@ -129,10 +129,21 @@ A task without a connection to at least an `@Area` or `+project` is a candidate 
 
 ## Routine cadence
 
-- **Daily**: plan `Today`, keep `Now (1)` honest, clear `my/inbox.md` before end of day.
-- **Weekly**: pull from `Recurring Tasks 🔁` and `Ticklers 🗓️`, promote from `Later` to `This Week`, move stale `Later` items to `Someday/Maybe`, archive the `Completed` block.
+The buckets form a pipeline; work flows toward `Today` and eventually `Completed`. The drag direction is always down the list (toward higher commitment, toward "now"):
+
+```
+Someday/Maybe  →  Later  →  This Week  →  Today  →  Now/Pomodoro  →  Completed
+```
+
+- **Daily (every morning)**: plan `📆 Today` by dragging tasks from `🗓 This Week`. Keep `🍅 Now/Pomodoro (1)` honest — one focus at a time. Clear `my/inbox.md` before end of day.
+- **Weekly**:
+  - Pull from `Recurring Tasks 🔁` and `Ticklers 🗓️` into the live buckets.
+  - Promote from `🗒 Later` → `🗓 This Week` — pick what you actually commit to doing this week.
+  - Review `🤔 Someday/Maybe`: **delete what you'll never do**, **promote to `🗒 Later`** the ideas you now want to commit to (and process them as real tasks — priority, hub, project, deadline).
+  - Move stale `🗒 Later` items down to `🤔 Someday/Maybe` if you're no longer committed.
+  - Archive (or delete) the `✅ Completed` block.
 - **Monthly**: review `H2 Areas` pages and confirm the active `+project` set.
-- **Quarterly**: review `H3 Goals`, `H4 Vision`, and `Someday/Maybe`.
+- **Quarterly**: review `H3 Goals`, `H4 Vision`, and `🤔 Someday/Maybe`.
 
 ## References
 
