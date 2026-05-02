@@ -71,7 +71,7 @@ Everything in weekly, plus:
 
 1. Last ~30 daily notes.
 2. Each `@Area 🔵.md` hub under `second-brain/areas/`.
-3. `my/workflow/Horizons of Focus 🌅.md` for alignment check.
+3. `my/workflow/Horizons of Focus 🌄.md` for alignment check.
 
 ### topic:retrieval / topic:refresh
 
@@ -148,7 +148,7 @@ Terms:
 For each answer the user gives:
 
 - **Person** → write `my/contacts/<name>.md` (use `templates/contact.md` if present; otherwise a minimal stub: name, role, how-we-know-each-other, nicknames). If mentioned ≥ 3 times recently, add a row to the `## People` table in `@Journal 📔.md`.
-- **Project** → write `second-brain/projects/+<slug>.md` (use `templates/project.md` if present; otherwise a minimal stub: goal, status, related area, related people). If active, add a row to the `## Projects` table in `@Journal 📔.md`.
+- **Project** → write `second-brain/projects/+<slug>.md` (use `templates/project-home.md` if present; otherwise a minimal stub: goal, status, related area, related people). If active, add a row to the `## Projects` table in `@Journal 📔.md`.
 - **Term / acronym** → append a row to `my/@Glossary 📖.md`. If used ≥ 3 times recently, also add to `## Terms` in `@Journal 📔.md`.
 - **Company / team / tool context** → append to the right section of `my/@Company 🏢.md`.
 
@@ -190,7 +190,7 @@ After the summary, the user often wants one of:
 - `my/daily/YYYY-MM-DD.md` — daily notes.
 - `my/daily/@Journal 📔.md` — hot-cache host (appended to, not rewritten).
 - `my/contacts/<name>.md` — deep memory: people.
-- `my/workflow/Horizons of Focus 🌅.md`, `Recurring Tasks 🔁.md`, `Ticklers 🗓️.md` — strategic + pickers.
+- `my/workflow/Horizons of Focus 🌄.md`, `Recurring Tasks 🔁.md`, `Ticklers 🗓️.md` — strategic + pickers.
 - `second-brain/projects/+<slug>.md` — deep memory: projects, and refresh target.
 - `second-brain/areas/@Area 🔵.md` — area hubs, refresh target.
 - `my/@Glossary 📖.md` — deep memory: terms.

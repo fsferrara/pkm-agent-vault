@@ -1,1 +1,1 @@
-- [ ] (B) Task [[@Areas 💠]] [[@Projects 💻]] due:YYYY-MM-DD
+- [ ] (B) Task description @Context [[+project-slug]] due:YYYY-MM-DD

@@ -9,7 +9,7 @@ This is a **personal knowledge management (PKM) vault** built from markdown file
 - **GTD (Getting Things Done)** under `my/` — task and workflow management
 - **Second Brain (PARA + CODE)** under `second-brain/` — knowledge organization
 
-The vault is designed to be opened in [Foam](https://foambubble.github.io/) (VS Code extension) or [Obsidian](https://obsidian.md/), which both render `[[wiki-links]]` and provide graph navigation. Configuration for each lives in `.vscode/` and `.obsidian/`.
+The vault is designed to be opened in [Foam](https://foambubble.github.io/) (VS Code extension) or [Obsidian](https://obsidian.md/), which both render `[[wiki-links]]` and provide graph navigation. Foam configuration lives in `.vscode/`; Obsidian creates its own `.obsidian/` folder on first open.
 
 ## High-Level Structure
 
@@ -17,8 +17,8 @@ The vault is designed to be opened in [Foam](https://foambubble.github.io/) (VS 
 my/                     # GTD: personal task & workflow management
   todo.md               # Ground-level task list (main todo file)
   inbox.md              # Free-form unprocessed capture
-  @Glossary 📖.md       # Deep memory: acronyms, codenames, nicknames
-  @Company 🏢.md        # Deep memory: teams, tools, recurring processes
+  @Glossary 📖.md       # Deep memory: acronyms, codenames, nicknames (created lazily by vault-update)
+  @Company 🏢.md        # Deep memory: teams, tools, recurring processes (created lazily by vault-update)
   daily/                # Daily journal entries (YYYY-MM-DD.md)
     @Journal 📔.md      # Daily-notes hub + hot-cache for memory
   meetings/             # Meeting notes
@@ -40,9 +40,13 @@ attachments/            # Images and binary assets referenced from notes
   skills/                          # Intent-triggered skills (see "Skills" below)
 ```
 
+## External connectors
+
+The vault is **vault-local** by default: the three included skills never reach out over MCP. A pre-wired `.mcp.json` lists optional MCP servers (Slack, Notion, Asana, Linear, Atlassian, Microsoft 365, monday.com, ClickUp) so you can ask ad-hoc questions or author additional skills that pull from those tools. See `CONNECTORS.md` for conventions (`~~category` placeholders) and the current wiring. Delete `.mcp.json` if you want no external connectors at all.
+
 ## Skills
 
-Five intent-triggered skills live under `.agents/skills/`. The coding agent invokes a skill when the user's request matches its `description`; you don't need to name the skill explicitly.
+Three intent-triggered skills live under `.agents/skills/`. The coding agent invokes a skill when the user's request matches its `description`; you don't need to name the skill explicitly.
 
 **Editing one note:**
 
@@ -114,7 +118,7 @@ Unprocessed capture goes to `my/inbox.md`, not a todo bucket.
 
 ## GTD Workflow (editing `my/**`)
 
-**Horizons of Focus** are layered priorities — skim `my/workflow/Horizons of Focus 🌅.md` before making strategic changes:
+**Horizons of Focus** are layered priorities — skim `my/workflow/Horizons of Focus 🌄.md` before making strategic changes:
 
 - **H5 Purpose** — core mission & values
 - **H4 Vision** — 3–5 year outlook

@@ -1,14 +1,16 @@
-#project
+#project #example
 
-Creare mappe concettuali con VSCode e Copilot
+> **Example project page** shipped with this starter template — delete or replace once you have real projects.
 
-## Istruzioni
+Create concept maps with VSCode and Copilot.
 
-1. Usare la modalità [[markmap.chatmode]] per generare una mappa in formato [Markmap](https://markmap.js.org/).
-2. Click destro sul file salvato e selezionare "Open as markmap"
-3. Si apre la mappa Concettuale
-4. In basso c'è il pulsante `Export` per esportare nel formato `.html`, consultabile da browser.
+## Instructions
+
+1. Use the [[markmap.chatmode]] mode to generate a map in [Markmap](https://markmap.js.org/) format.
+2. Right-click the saved file and select "Open as markmap".
+3. The concept map opens.
+4. Use the `Export` button at the bottom to export as `.html`, viewable from a browser.
 
 ## Related
 
-- [[sample-markmap]]: mappa di esempio
+- [[sample-markmap]]: sample map

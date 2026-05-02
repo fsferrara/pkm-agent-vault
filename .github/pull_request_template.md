@@ -9,4 +9,4 @@
 
 <!-- Briefly describe your contribution and its purpose. Include any relevant context or usage notes. -->
 
-By submitting this pull request, I confirm that my contribution will be licensed under the [License](../LICENSE) terms.
+By submitting this pull request, I confirm that my contribution will be licensed under the [License](../LICENSE.md) terms.

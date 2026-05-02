@@ -2,9 +2,13 @@
 
 ## Context Content
 
-[[inbox]] <- Inbox
-[[todo]] <- Ground Tasks
+Hub for the GTD workflow layer. Open these in order:
 
-[[Recurring Tasks 🔁]] <- pick from here weekly
-[[Ticklers 🗓️]] <- pick from here monthly
-[[Horizons of Focus 🌄]] <- review quarterly
+- [[inbox]] — free-form capture (unprocessed).
+- [[todo]] — ground-level tasks organized into the seven buckets.
+
+Strategic / cyclical pickers:
+
+- [[Recurring Tasks 🔁]] — pick from here **weekly**.
+- [[Ticklers 🗓️]] — pick from here **monthly**.
+- [[Horizons of Focus 🌄]] — review **quarterly**.

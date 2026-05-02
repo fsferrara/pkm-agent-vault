@@ -1,5 +1,5 @@
 #context#journal
-#Journal :> Inbox for every thought. Remember to move new tasks in the [[inbox]].
+#Journal :> Daily journal hub. For unprocessed capture use [[inbox]]; for tasks, see [[todo]].
 
 ## Context Content
 
@@ -34,7 +34,7 @@ Currently-active projects. Details on each `+project` page.
 |------|------|
 |      |      |
 
-→ Project pages: `second-brain/projects/`
+→ Project pages: `second-brain/projects/` · Hub per area: [[@Projects 💻]]
 
 ## Preferences
 

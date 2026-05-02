@@ -24,7 +24,7 @@ Do **not** use this skill for knowledge notes or reference material (that's `sec
 
 - **`my/inbox.md`** — free-form unprocessed capture. Items here are raw one-liners; they get clarified and routed into `my/todo.md` during processing.
 - **`my/todo.md`** — the single file containing every active and historical bucket. All task additions and moves happen here.
-- **`my/workflow/Horizons of Focus 🌅.md`** — strategic layer (H5 Purpose → H1 Projects). Consult when the user is reviewing priorities or deciding whether something deserves to become a project.
+- **`my/workflow/Horizons of Focus 🌄.md`** — strategic layer (H5 Purpose → H1 Projects). Consult when the user is reviewing priorities or deciding whether something deserves to become a project.
 - **`my/workflow/Recurring Tasks 🔁.md`** and **`Ticklers 🗓️.md`** — pickers for weekly/monthly reviews. Tasks from here get copied into the live buckets.
 
 > For stale-task triage, memory-gap fill, or any cross-vault review (daily/weekly/monthly cadence, topic retrieval, hub-page refresh), defer to `vault-update`.
@@ -108,7 +108,7 @@ Keep the headings and emojis exactly as they appear. If a heading is missing (ot
 
 ## Horizons of Focus (strategic reviews)
 
-When the user asks for a review or wants to reshape priorities, read `my/workflow/Horizons of Focus 🌅.md` and work top-down:
+When the user asks for a review or wants to reshape priorities, read `my/workflow/Horizons of Focus 🌄.md` and work top-down:
 
 - **H5 Purpose** (life mission) — rarely touched.
 - **H4 Vision** (3–5 years) — quarterly.
@@ -129,7 +129,7 @@ A task without a connection to at least an `@Area` or `+project` is a candidate 
 ## References
 
 - `my/todo.md` — live data.
-- `my/workflow/Horizons of Focus 🌅.md` — strategic layer.
+- `my/workflow/Horizons of Focus 🌄.md` — strategic layer.
 - `my/workflow/Recurring Tasks 🔁.md`, `Ticklers 🗓️.md` — pickers for weekly/monthly reviews.
 - `AGENTS.md` (repo root) — vault-wide conventions, links, emoji handling.
 - `.agents/skills/vault-update/SKILL.md` — cross-vault reviews, triage, memory gap-fill.
