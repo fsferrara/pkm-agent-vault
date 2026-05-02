@@ -1,1 +1,1 @@
-- [ ] (B) Task description @Context [[+project-slug]] due:YYYY-MM-DD
+- [ ] (B) Task description [[@Hub 🔵]] [[+project-slug]] due:YYYY-MM-DD

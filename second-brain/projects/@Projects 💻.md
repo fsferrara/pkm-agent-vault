@@ -10,4 +10,4 @@ When it comes to work related project, I recommend to not exceed 2-3 projects pe
 
 ## Active projects
 
-Refer to [[todo]]
+Active projects folders are in `second-brain/projects`.

@@ -90,8 +90,10 @@ Use Foam/Obsidian wiki-link syntax, not standard markdown links, for internal cr
 ### Task format (todo.txt-style)
 
 ```markdown
-- [ ] (A) Task description @Context +project due:YYYY-MM-DD
+- [ ] (A) Task description [[@Hub 🔵]] [[+project-slug]] due:YYYY-MM-DD
 ```
+
+`[[@Hub 🔵]]` must point to an existing `@Hub 🔵.md` file, and `[[+project-slug]]` must point to an existing `+project-slug.md` file under `second-brain/projects/` — if either has no existing target, omit that slot rather than invent one.
 
 Priorities follow the Eisenhower Matrix:
 

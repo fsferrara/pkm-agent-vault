@@ -67,15 +67,23 @@ Maintain **one** item under `## 🍅 Now/Pomodoro (1)` — the current focus. Tw
 ## Task format (todo.txt-flavored)
 
 ```markdown
-- [ ] (A) Task description @Context +project due:YYYY-MM-DD
+- [ ] (A) Task description [[@Hub 🔵]] [[+project-slug]] due:YYYY-MM-DD
 ```
 
 Rules:
 
 - Leading `- [ ]` for open, `- [x]` for done.
 - Priority is optional but, when present, uses a single uppercase letter in parens: `(A)` `(B)` `(C)` `(D)`.
-- `@Context` refers to an area hub page (e.g. `@Work 💼`, `@Home 🏠`, `@Learning 📚`). Written inline without brackets or as a wiki-link `[[@Area 🔵]]` — follow the style already present in the file.
-- `+project` links to a `+project-slug` page (e.g. `[[+launch-website]]`).
+- `[[@Hub 🔵]]` is a wiki-link to an existing hub page in the vault (e.g. `[[@Meetings 💼]]`, `[[@Projects 💻]]`, `[[@Journal 📔]]`). It is **always** a wiki-link — bare `@tokens` like `@computer` or `@home` are not contexts in this vault, they're broken links to files that don't exist. Only use a hub that already exists as a file; if none fits, drop the context slot rather than invent one. New hubs are created deliberately, not as a side effect of filing a task.
+
+  Good: `- [ ] (B) Prep agenda for 1:1 [[@Meetings 💼]] [[+q2-planning]]`
+  Bad:  `- [ ] (B) Prep agenda for 1:1 @meetings +q2-planning` (bare token, not a link)
+  Bad:  `- [ ] (B) Pick TUI framework @computer +tui-tetris` (no `@Computer` hub exists)
+- `[[+project-slug]]` is a wiki-link to an existing project page under `second-brain/projects/` (e.g. `[[+launch-website]]`, `[[+tui-tetris]]`). It is **always** a wiki-link — bare `+tokens` like `+launch-website` are broken references in this vault. Only use a project that already exists as a file; if none fits, drop the project slot rather than invent one. New projects are created deliberately (see `second-brain-organize`), not as a side effect of filing a task.
+
+  Good: `- [ ] (B) Ship landing-page draft [[@Projects 💻]] [[+launch-website]]`
+  Bad:  `- [ ] (B) Ship landing-page draft [[@Projects 💻]] +launch-website` (bare token, not a link)
+  Bad:  `- [ ] (B) Pick TUI framework [[@Projects 💻]] +tui-tetris` (must be `[[+tui-tetris]]` — the file exists)
 - `due:YYYY-MM-DD` uses ISO dates. No other date format.
 - Preserve the emojis in section headings and wiki-links exactly — they are part of the link target.
 
