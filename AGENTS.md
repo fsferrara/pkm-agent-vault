@@ -15,16 +15,20 @@ The vault is designed to be opened in [Foam](https://foambubble.github.io/) (VS 
 
 ```
 my/                     # GTD: personal task & workflow management
-  Tasks 💼.md           # Inbox + Ground-level task list (main todo file)
+  todo.md               # Ground-level task list (main todo file)
+  inbox.md              # Free-form unprocessed capture
+  @Glossary 📖.md       # Deep memory: acronyms, codenames, nicknames
+  @Company 🏢.md        # Deep memory: teams, tools, recurring processes
   daily/                # Daily journal entries (YYYY-MM-DD.md)
+    @Journal 📔.md      # Daily-notes hub + hot-cache for memory
   meetings/             # Meeting notes
-  contacts/             # Contact cards
+  contacts/             # Contact cards (deep memory: people)
   places/               # Location notes
   stickies/             # Quick ephemeral notes
   workflow/             # GTD reference docs (Horizons of Focus, Recurring, Ticklers)
 
 second-brain/           # PARA: topic-based knowledge
-  projects/             # Active, time-bound initiatives (prefix: +)
+  projects/             # Active, time-bound initiatives (prefix: +). Also deep memory: projects.
   areas/                # Ongoing responsibilities (prefix: @)
   resources/            # Reference material by topic
   archive/              # Completed / inactive items
@@ -38,22 +42,24 @@ attachments/            # Images and binary assets referenced from notes
 
 ## Skills
 
-Six intent-triggered skills live under `.agents/skills/`. The coding agent invokes a skill when the user's request matches its `description`; you don't need to name the skill explicitly.
+Five intent-triggered skills live under `.agents/skills/`. The coding agent invokes a skill when the user's request matches its `description`; you don't need to name the skill explicitly.
 
 **Editing one note:**
 
-- **`gtd-task-workflow`** — capture, clarify, route, and format tasks in `my/Tasks 💼.md`. Triggers on todo/inbox/planning/delegation phrasings.
+- **`gtd-task-workflow`** — capture, clarify, route, and format tasks in `my/todo.md`. Triggers on todo/inbox/planning/delegation phrasings.
 - **`second-brain-organize`** — file and distill knowledge notes under `second-brain/` via PARA + CODE. Triggers on "where does this go", filing, categorizing, summarizing, archiving.
-
-**Authoring artifacts:**
-
-- **`async-meeting`** — draft a structured three-phase async-meeting document (Presentation → Discussion → Conclusion) with owners and deadlines.
-- **`mindmap-generator`** — convert text into a markmap.js-compatible hierarchical mind map with the required frontmatter.
 
 **Working across the vault:**
 
-- **`vault-review`** — cadence-driven summary across multiple notes: daily shutdown, weekly review, monthly area check. Reports what shipped/slipped and what to commit next.
-- **`vault-synthesize`** — gather scattered mentions of a topic, project, or area from across the vault and either answer a retrieval question or regenerate a hub page from them.
+- **`vault-update`** — the one cross-vault skill. Runs six modes chosen from the user's phrasing:
+  - `cadence:daily` — daily shutdown + plan for tomorrow.
+  - `cadence:weekly` — weekly review: shipped / slipped / waiting / projects snapshot / next-week candidates.
+  - `cadence:monthly` — month-end: @Area health, project portfolio, Horizons alignment.
+  - `topic:retrieval` — "what have I written about X" across the whole vault.
+  - `topic:refresh` — regenerate a `+project` or `@Area` hub-page overview from scattered mentions.
+  - `triage` — stale-task flagging in `my/todo.md` + memory-gap fill for unknown people, projects, acronyms.
+
+  No external sync — vault-local only.
 
 Each skill contains action-oriented, imperative instructions — step-by-step workflow, the exact formats/templates to produce, and cross-references to the live vault files. The methodology background (GTD horizons, PARA philosophy, etc.) is in this file.
 
@@ -90,19 +96,21 @@ Priorities follow the Eisenhower Matrix:
 - `(C)` Urgent, not important — delegate / batch
 - `(D)` Neither — minimize or drop
 
-### Todo list sections (in `my/Tasks 💼.md` or `my/todo.md`)
+### Todo list sections (in `my/todo.md`)
 
-Tasks flow through these buckets in order. Keep the section headings and emojis intact:
+Tasks flow through these buckets in order. Keep the section headings and emojis intact. The seven canonical buckets reflect the current file:
 
-1. `📥 Inbox` — unprocessed capture
-2. `🍅 Now (1)` — single current focus
+1. `✅ Completed`
+2. `🍅 Now/Pomodoro (1)` — single current focus
 3. `📆 Today`
 4. `🗓 This Week`
 5. `🗒 Later`
-6. `🗓 Ticklers` — date-triggered reminders
-7. `⏳ Wait/Delegated`
-8. `🤔 Someday/Maybe`
-9. `✅ Done`
+6. `⏳ Waiting For (delegated)`
+7. `🤔 Someday/Maybe`
+
+`🗓 Ticklers` is optional — `gtd-task-workflow` adds it the first time the user needs it.
+
+Unprocessed capture goes to `my/inbox.md`, not a todo bucket.
 
 ## GTD Workflow (editing `my/**`)
 
@@ -113,15 +121,15 @@ Tasks flow through these buckets in order. Keep the section headings and emojis 
 - **H3 Goals** — 1–2 year outcomes
 - **H2 Areas** — 12-month focus (linked from `@Area` pages)
 - **H1 Projects** — <12-month commitments (linked from `+project` pages)
-- **Ground** — actionable tasks in `Tasks 💼.md`
+- **Ground** — actionable tasks in `my/todo.md`
 
-**Capture → Process → Organize**: new items land in the Inbox section, get clarified (outcome? priority? context? deadline?), then routed:
+**Capture → Process → Organize**: new items land in `my/inbox.md`, get clarified (outcome? priority? context? deadline?), then routed into one of the seven `my/todo.md` buckets:
 
-- < 2 min → do it now, mark done
-- Delegatable → `Wait/Delegated`
+- < 2 min → do it now, mark done (`✅ Completed`)
+- Delegatable → `⏳ Waiting For (delegated)`
 - Multi-step → create/update a `+project` page, link the task to it
-- Timed → `Today` / `This Week` / `Later`
-- Not actionable → delete or move to `Someday/Maybe`
+- Timed → `📆 Today` / `🗓 This Week` / `🗒 Later`
+- Not actionable → delete or move to `🤔 Someday/Maybe`
 
 ## Second Brain Workflow (editing `second-brain/**`)
 
@@ -161,15 +169,52 @@ When an AI agent is asked to take or update daily notes:
 - Keep the existing `#Journal` tag at the top; add new content below without rewriting what's already there.
 - Use timestamps (`## 14:30` or `- 14:30 — …`) when logging events across the day so entries stay chronological.
 - Summarize external material rather than pasting long logs verbatim; include a link to the source.
-- Flag items that look like GTD tasks (action + owner) so the user can route them into `Tasks 💼.md`; do not add them there automatically unless instructed.
+- Flag items that look like GTD tasks (action + owner) so the user can route them into `my/todo.md`; do not add them there automatically unless instructed.
 
 There is no test suite, no linter, no build. Verification is reading the rendered note in Foam/Obsidian and confirming links resolve.
+
+## Memory (two-tier)
+
+The agent decodes your shorthand ("ask todd about PSR") by consulting a two-tier memory. **Hot cache** is a short, high-traffic summary living inside the daily-notes hub. **Deep memory** is the full knowledge base, spread across the vault's existing homes instead of a parallel `memory/` tree.
+
+### Hot cache
+
+`my/daily/@Journal 📔.md` — four tables appended below the existing `## Context Content` section:
+
+- `## People` — top ~30 contacts.
+- `## Terms` — most-used acronyms and shorthand.
+- `## Projects` — currently-active `+project` entries.
+- `## Preferences` — working preferences (meeting style, focus windows).
+
+Target total for the four tables: ~80 lines. When it grows beyond that, demote to deep memory.
+
+### Deep memory
+
+| Tier | Location |
+|---|---|
+| People | `my/contacts/<name>.md` (hub: [[@Contacts 👥]]) |
+| Projects | `second-brain/projects/+<slug>.md` |
+| Glossary (acronyms, codenames, nicknames) | `my/@Glossary 📖.md` |
+| Company context (teams, tools, processes) | `my/@Company 🏢.md` |
+
+### Lookup order
+
+1. Hot cache (`@Journal 📔.md` tables).
+2. Deep memory — people / projects / glossary / company context.
+3. Ask the user; on answer, write to deep memory.
+
+### Promotion / demotion
+
+- **Promote** a deep-memory entry to the hot cache when the entity is referenced ≥ 3 times across recent tasks or daily notes.
+- **Demote** (remove the hot-cache row; keep the deep-memory file) when the project ships, a contact stops being frequent, or a term falls out of use.
+- The `vault-update` skill runs the bootstrap, lookup, and gap-fill — it's the surface that keeps memory alive.
 
 ## When Editing
 
 - For any non-trivial edit in `my/**` or `second-brain/**`, consult the matching Skill (`gtd-task-workflow` / `second-brain-organize`) and follow it.
+- For cross-note reviews, retrievals, hub refreshes, or triage, use `vault-update`.
 - Preserve existing emojis, wiki-links, priority markers, and section headings exactly — they are semantically meaningful to the user's system and to Foam's graph.
-- Prefer updating the appropriate existing hub page (`@Area`, `+project`, `Tasks 💼.md`) over creating new top-level notes.
-- When adding a task, place it in the correct bucket; don't dump everything into Inbox unless it's genuinely unprocessed.
+- Prefer updating the appropriate existing hub page (`@Area`, `+project`, `my/todo.md`) over creating new top-level notes.
+- When adding a task, place it in the correct bucket; don't dump everything into `my/inbox.md` unless it's genuinely unprocessed.
 - When capturing knowledge, decide PARA placement before writing — don't leave orphan notes at the root of `second-brain/`.
 - Keep captures short and linked. Distillation happens over time, not at capture.

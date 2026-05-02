@@ -20,6 +20,7 @@ Do **not** use this skill for:
 
 - Task capture or routing → `gtd-task-workflow`.
 - Daily journal entries → the Daily Notes section of `AGENTS.md`.
+- Hub-page refreshes from scattered notes, topic retrievals, or cadence reviews → `vault-update` (mode: `topic:refresh` or `topic:retrieval` or `cadence:*`).
 
 ## Directory layout
 
@@ -111,3 +112,4 @@ Don't distill on first write. Capture now, distill later.
 
 - `second-brain/{projects,areas,resources,archive}/` — live data.
 - `AGENTS.md` (repo root) — vault-wide conventions for file naming, linking, and emoji handling.
+- `.agents/skills/vault-update/SKILL.md` — hub-page refreshes from scattered notes.
