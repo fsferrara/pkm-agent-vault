@@ -13,104 +13,42 @@ We welcome contributions of all types, including:
 
 ## How to Contribute
 
-### Adding Instructions
+### Adding Skills
 
-Instructions help customize GitHub Copilot's behavior for specific processes, tasks, or domains.
+Skills customize the agent's behavior by teaching it domain-specific workflows, formats, or personas. The coding agent invokes a skill automatically when the user's request matches the skill's `description`.
 
-1. **Create your instruction file**: Add a new `.md` file in the `instructions/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens (e.g., `pitch.instructions.md`)
-3. **Structure your content**: Start with a clear heading and organize your instructions logically
-4. **Test your instructions**: Make sure your instructions work well with GitHub Copilot
+1. **Create the skill directory**: `.agents/skills/<skill-name>/` with a single `SKILL.md` inside. Use a descriptive, lowercase, hyphenated name (e.g., `weekly-review`, `meeting-capture`).
+2. **Write the frontmatter**: `name` and `description` are required. The `description` is the primary triggering mechanism — state concretely what the skill does and list the phrasings/contexts that should invoke it. Lean slightly "pushy" to combat undertriggering.
+3. **Write the body**: use imperative voice, explain the *why* behind rules, and keep the file under ~500 lines. Include a `## When to use` section, the workflow steps, and any exact formats/templates the skill must produce.
+4. **Cross-reference live files**: link to the specific vault files the skill reads or writes (e.g. `my/Tasks 💼.md`, `second-brain/projects/`) rather than restating their conventions.
+5. **Test the trigger**: open a fresh coding agent session and issue a natural-language request *without naming the skill*. If the agent doesn't invoke it, refine the description's "use this whenever…" clause.
 
-#### Example instruction format
-
-```markdown
----
-description: 'Instructions for customizing GitHub Copilot behavior for specific technologies and practices'
----
-
-# Your Process/Task/Domain Name
-
-## Instructions
-
-- Provide clear, specific guidance for GitHub Copilot
-- Include best practices and conventions
-- Use bullet points for easy reading
-
-## Additional Guidelines
-
-- Any additional context or examples
-```
-
-### Adding Prompts
-
-Prompts are ready-to-use templates for specific development scenarios and tasks.
-
-1. **Create your prompt file**: Add a new `.prompt.md` file in the `prompts/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens and the `.prompt.md` extension (e.g., `generate-mind-map.prompt.md`)
-3. **Include frontmatter**: Add metadata at the top of your file (optional but recommended)
-4. **Structure your prompt**: Provide clear context and specific instructions
-
-#### Example prompt format
+#### Example SKILL.md
 
 ```markdown
 ---
-mode: 'agent'
-tools: ['codebase', 'terminalCommand']
-description: 'Brief description of what this prompt does'
+name: example-skill
+description: One paragraph saying what this skill does AND when to invoke it. List 3–5 example phrasings the user might say. Close with "Use this skill whenever …" to encourage triggering even when the user doesn't name the skill.
 ---
 
-# Prompt Title
+# Example Skill
 
-Your goal is to...
+## When to use
+- "concrete user phrasing"
+- "another realistic phrasing"
 
-## Specific Instructions
+## Workflow
+1. Step one — explain why.
+2. Step two — explain why.
 
-- Clear, actionable instructions
-- Include examples where helpful
+## Output format
+Exact template or rules the skill must produce.
+
+## References
+- Links to live vault files this skill reads or writes.
 ```
 
-### Adding Chat Modes
-
-Chat modes are specialized configurations that transform GitHub Copilot Chat into domain-specific assistants or personas for particular activity scenarios.
-
-1. **Create your chat mode file**: Add a new `.chatmode.md` file in the `chatmodes/` directory
-2. **Follow the naming convention**: Use descriptive, lowercase filenames with hyphens and the `.chatmode.md` extension (e.g., `mentor.chatmode.md`)
-3. **Include frontmatter**: Add metadata at the top of your file with required fields
-4. **Define the persona**: Create a clear identity and expertise area for the chat mode
-5. **Test your chat mode**: Ensure the chat mode provides helpful, accurate responses in its domain
-
-#### Example chat mode format
-
-```markdown
----
-description: 'Brief description of the chat mode and its purpose'
-model: 'gpt-5'
-tools: ['codebase', 'terminalCommand']
----
-
-# Chat Mode Title
-
-You are an expert [domain/role] with deep knowledge in [specific areas].
-
-## Your Expertise
-
-- [Specific skill 1]
-- [Specific skill 2]
-- [Specific skill 3]
-
-## Your Approach
-
-- [How you help users]
-- [Your communication style]
-- [What you prioritize]
-
-## Guidelines
-
-- [Specific instructions for responses]
-- [Constraints or limitations]
-- [Best practices to follow]
-```
+Look at the existing skills under `.agents/skills/` for working examples.
 
 ## Submitting Your Contribution
 
