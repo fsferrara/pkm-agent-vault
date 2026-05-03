@@ -1,0 +1,15 @@
+{
+  "newFileLocation": "current",
+  "attachmentFolderPath": "attachments",
+  "alwaysUpdateLinks": true,
+  "useTab": false,
+  "tabSize": 4,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": true,
+    "margin": "2",
+    "downscalePercent": 100
+  },
+  "readableLineLength": false
+}
